@@ -9,8 +9,16 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 import Head from "next/head";
+import { useState } from "react";
+import { Modal } from "../components/Modal";
 
 export default function Home() {
+  const [isPortariaModalOpen, setIsPortariaModalOpen] = useState(false);
+  const [isServicosModalOpen, setIsServicosModalOpen] = useState(false);
+  const [isZeladoriaModalOpen, setIsZeladoriaModalOpen] = useState(false);
+  const [isAdmModalOpen, setIsAdmModalOpen] = useState(false);
+  const [isJardinagemModalOpen, setIsJardinagemModalOpen] = useState(false);
+
   var settings = {
     arrows: false,
     dots: false,
@@ -34,7 +42,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Dual Serviços</title>
+        <title>Dual | Serviços Terceirizados</title>
       </Head>
 
       <main>
@@ -45,10 +53,12 @@ export default function Home() {
               Os mais preparados e especializados de Campo Grande, você encontra
               aqui.
             </span>
-            <a href="">Saiba mais</a>
+            <a href="https://api.whatsapp.com/send?phone=556799828077&text=Olá! Gostaria de um orçamento.">
+              Saiba mais
+            </a>
           </div>
 
-          <img src="/illustration.png" alt="" />
+          <img src="/banner.png" alt="Caneta e papel" />
         </HeroContainer>
 
         <ClientsContainer id="clients">
@@ -64,28 +74,28 @@ export default function Home() {
 
           <Slider {...settings}>
             <div className="carrouselImage">
-              <img src="/agf.png" alt="" />
+              <img src="/agf.png" alt="Logo AGF" />
             </div>
             <div className="carrouselImage">
-              <img src="/nego-tech.png" alt="" />
+              <img src="/nego-tech.png" alt="Logo Nego Tech" />
             </div>
             <div className="carrouselImage">
-              <img src="/agf.png" alt="" />
+              <img src="/agf.png" alt="Logo AGF" />
             </div>
             <div className="carrouselImage">
-              <img src="/nego-tech.png" alt="" />
+              <img src="/nego-tech.png" alt="Logo Nego Tech" />
             </div>
             <div className="carrouselImage">
-              <img src="/agf.png" alt="" />
+              <img src="/agf.png" alt="Logo AGF" />
             </div>
             <div className="carrouselImage">
-              <img src="/nego-tech.png" alt="" />
+              <img src="/nego-tech.png" alt="Logo Nego Tech" />
             </div>
             <div className="carrouselImage">
-              <img src="/agf.png" alt="" />
+              <img src="/agf.png" alt="Logo AGF" />
             </div>
             <div className="carrouselImage">
-              <img src="/nego-tech.png" alt="" />
+              <img src="/nego-tech.png" alt="Logo Nego Tech" />
             </div>
           </Slider>
         </ClientsContainer>
@@ -102,7 +112,30 @@ export default function Home() {
                 height={196}
               />
               <span>Portaria</span>
-              <a href="">Saiba mais</a>
+              <button onClick={() => setIsPortariaModalOpen(true)}>
+                Saiba mais
+              </button>
+
+              <Modal
+                isModalOpen={isPortariaModalOpen}
+                title="Portaria"
+                setModalOpen={setIsPortariaModalOpen}
+              >
+                <img src="/portaria-big.png" alt="Portaria" />
+
+                <div>
+                  <p>
+                    Para a função de porteiro, nossa empresa conta com
+                    profissionais experientes no mercado. Nossa equipe é
+                    composta por pessoas atentas e que realizam um trabalho
+                    sério. Contate-nos e solucione suas dúvidas.
+                  </p>
+
+                  <a href="https://api.whatsapp.com/send?phone=556799828077&text=Olá! Gostaria de um orçamento.">
+                    Entre em contato
+                  </a>
+                </div>
+              </Modal>
             </div>
             <div className="cardsItem">
               <Image
@@ -112,7 +145,30 @@ export default function Home() {
                 height={196}
               />
               <span>Serviços Gerais</span>
-              <a href="">Saiba mais</a>
+              <button onClick={() => setIsServicosModalOpen(true)}>
+                Saiba mais
+              </button>
+
+              <Modal
+                isModalOpen={isServicosModalOpen}
+                title="Serviços Gerais"
+                setModalOpen={setIsServicosModalOpen}
+              >
+                <img src="/services-big.png" alt="Serviços Gerais" />
+
+                <div>
+                  <p>
+                    Nossos profissionais são especialistas em higienização e
+                    conservação de ambientes. A Dual oferece resultados que
+                    solucionarão sua demanda, atentando para cada detalhe de
+                    maneira qualificada.
+                  </p>
+
+                  <a href="https://api.whatsapp.com/send?phone=556799828077&text=Olá! Gostaria de um orçamento.">
+                    Entre em contato
+                  </a>
+                </div>
+              </Modal>
             </div>
             <div className="cardsItem">
               <Image
@@ -122,7 +178,30 @@ export default function Home() {
                 height={196}
               />
               <span>Zeladoria</span>
-              <a href="">Saiba mais</a>
+              <button onClick={() => setIsZeladoriaModalOpen(true)}>
+                Saiba mais
+              </button>
+
+              <Modal
+                isModalOpen={isZeladoriaModalOpen}
+                title="Zeladoria"
+                setModalOpen={setIsZeladoriaModalOpen}
+              >
+                <img src="/zeladoria-big.png" alt="Zeladoria" />
+
+                <div>
+                  <p>
+                    Disponibilizamos zeladores experientes no mercado, atentos
+                    para lidar com demandas diversas e encargos da função. Nossa
+                    equipe é instruída para realizar serviços de maneira ágil e
+                    objetiva.
+                  </p>
+
+                  <a href="https://api.whatsapp.com/send?phone=556799828077&text=Olá! Gostaria de um orçamento.">
+                    Entre em contato
+                  </a>
+                </div>
+              </Modal>
             </div>
             <div className="cardsItem">
               <Image
@@ -132,7 +211,30 @@ export default function Home() {
                 height={196}
               />
               <span>Apoio Administrativo</span>
-              <a href="">Saiba mais</a>
+              <button onClick={() => setIsAdmModalOpen(true)}>
+                Saiba mais
+              </button>
+
+              <Modal
+                isModalOpen={isAdmModalOpen}
+                title="Apoio Administrativo"
+                setModalOpen={setIsAdmModalOpen}
+              >
+                <img src="/adm-big.png" alt="Apoio administrativo" />
+
+                <div>
+                  <p>
+                    Contamos com profissionais especializados para realizar
+                    trabalhos administrativos, atuando em diversas vertentes da
+                    função. Dentre alguns cargos, disponibilizamos até mesmo
+                    estagiários, treinados e instruídos pela equipe Dual.
+                  </p>
+
+                  <a href="https://api.whatsapp.com/send?phone=556799828077&text=Olá! Gostaria de um orçamento.">
+                    Entre em contato
+                  </a>
+                </div>
+              </Modal>
             </div>
             <div className="cardsItem">
               <Image
@@ -142,7 +244,28 @@ export default function Home() {
                 height={196}
               />
               <span>Jardinagem</span>
-              <a href="">Saiba mais</a>
+              <button onClick={() => setIsJardinagemModalOpen(true)}>
+                Saiba mais
+              </button>
+              <Modal
+                isModalOpen={isJardinagemModalOpen}
+                title="Jardinagem"
+                setModalOpen={setIsJardinagemModalOpen}
+              >
+                <img src="/jardinagem-big.png" alt="Jardinagem" />
+
+                <div>
+                  <p>
+                    Mantemos o seu jardim em ótimas condições, realizando podas
+                    e tratamentos com muito cuidado. Venha conferir nosso
+                    trabalho e realize um orçamento.
+                  </p>
+
+                  <a href="https://api.whatsapp.com/send?phone=556799828077&text=Olá! Gostaria de um orçamento.">
+                    Entre em contato
+                  </a>
+                </div>
+              </Modal>
             </div>
           </div>
         </ServicesContainer>
@@ -175,7 +298,9 @@ export default function Home() {
               você
             </p>
 
-            <a href="">Entre em contato</a>
+            <a href="https://api.whatsapp.com/send?phone=556799828077&text=Olá! Gostaria de um orçamento.">
+              Entre em contato
+            </a>
           </div>
         </AboutUsContainer>
       </main>

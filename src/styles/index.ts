@@ -63,6 +63,8 @@ export const HeroContainer = styled.section`
 
   img {
     transform: translateX(2rem);
+    border-radius: 8px;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
 
     @media (max-width: 560px) {
       transform: translateX(0);
@@ -195,12 +197,14 @@ export const ServicesContainer = styled.section`
         font-size: 1.5rem;
       }
 
-      a {
+      button {
         border: 1px solid var(--green-400);
         margin-bottom: 1.5rem;
         border-radius: 8px;
         color: var(--green-400);
         padding: 0.4rem 1.5rem;
+        cursor: pointer;
+
         transition: 0.2s;
 
         &:hover {

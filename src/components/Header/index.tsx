@@ -33,7 +33,10 @@ export function Header() {
           </ul>
         </nav>
 
-        <a href="#" className="budgetButton">
+        <a
+          href="https://api.whatsapp.com/send?phone=556799828077&text=Olá! Gostaria de um orçamento."
+          className="budgetButton"
+        >
           Faça um orçamento
         </a>
       </div>

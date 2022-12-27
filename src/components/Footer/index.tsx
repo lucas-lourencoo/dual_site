@@ -16,21 +16,37 @@ export function Footer() {
             <li>
               <Image
                 src="/icons/map-marker-alt.svg"
-                alt=""
+                alt="Ícone de mapa"
                 width={28}
                 height={28}
               />
-              <a href="#">
+              <a
+                href="https://goo.gl/maps/p6YMAQ3d5MP9X3tX6"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Campo Grande/MS - Rua epitácio Pessoa, n 383 - Vilas Boas
               </a>
             </li>
             <li>
-              <Image src="/icons/phone-alt.svg" alt="" width={28} height={28} />
-              <a href="#">(67) 3385-5445</a>
+              <Image
+                src="/icons/phone-alt.svg"
+                alt="Ícone de Telefone"
+                width={28}
+                height={28}
+              />
+              <a href="tel: 67 3385-5445">(67) 3385-5445</a>
             </li>
             <li>
-              <Image src="/icons/envelope.svg" alt="" width={28} height={28} />
-              <a href="#">comercial@dualservicosterceirizados.com.br</a>
+              <Image
+                src="/icons/envelope.svg"
+                alt="Ícone de envelope"
+                width={28}
+                height={28}
+              />
+              <a href="mailto:comercial@dualservicosterceirizados.com.br">
+                comercial@dualservicosterceirizados.com.br
+              </a>
             </li>
           </ul>
         </div>
@@ -41,7 +57,7 @@ export function Footer() {
           <a href="https://negotech.com.br" target="_blank" rel="noreferrer">
             <Image
               src="/nego-tech-completa.png"
-              alt=""
+              alt="Logo Nego Tech"
               width={172}
               height={184}
             />
