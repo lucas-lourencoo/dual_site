@@ -11,6 +11,8 @@ import Image from "next/image";
 import Head from "next/head";
 import { useState } from "react";
 import { Modal } from "../components/Modal";
+import { List } from "../utils/list";
+import { Settings } from "react-slick";
 
 export default function Home() {
   const [isPortariaModalOpen, setIsPortariaModalOpen] = useState(false);
@@ -18,16 +20,38 @@ export default function Home() {
   const [isZeladoriaModalOpen, setIsZeladoriaModalOpen] = useState(false);
   const [isAdmModalOpen, setIsAdmModalOpen] = useState(false);
   const [isJardinagemModalOpen, setIsJardinagemModalOpen] = useState(false);
+  const lista = List(19);
 
-  var settings = {
+  var settings: Settings = {
     arrows: false,
     dots: false,
     infinite: true,
     autoplay: true,
     speed: 600,
-    slidesToShow: 5,
+    slidesToShow: 4,
     slidesToScroll: 1,
     pauseOnHover: false,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
+  var settings2: Settings = {
+    arrows: false,
+    dots: true,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    speed: 1000,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    pauseOnHover: true,
     responsive: [
       {
         breakpoint: 768,
@@ -58,52 +82,51 @@ export default function Home() {
             </a>
           </div>
 
-          <img src="/banner.png" alt="Caneta e papel" />
+          <video
+            controls
+            loop
+            autoPlay
+            controlsList="nodownload"
+            disablePictureInPicture
+            muted={false}
+            preload="auto"
+          >
+            <source src="/banner.mp4" type="video/mp4" />
+            Seu navegador não suporta o elemento <code>video</code>.
+          </video>
         </HeroContainer>
 
         <ClientsContainer id="clients">
           <header>
-            <h2>Nossos clientes em Campo Grande</h2>
+            <h2>Algumas fotos dos nossos serviços</h2>
             <p>
-              A Dual é uma empresa visionária, comprometida em entregar
-              resultados concretos para nossos contratantes. fornecendo serviços
-              terceirizados com alto padrão de qualidade. Conheça alguns de
-              nossos clientes e torne-se mais um parceiro da Dual.
+              A Dual é uma empresa visionária, comprometida em fornecer serviços
+              terceirizados de alta qualidade para nossos contratantes,
+              entregando resultados concretos. Nossos clientes comprovam a
+              excelência do nosso trabalho e sempre estão satisfeitos. Torne-se
+              mais um parceiro de sucesso da Dual ao optar pelos nossos
+              serviços.
             </p>
           </header>
 
           <Slider {...settings}>
-            <div className="carrouselImage">
-              <img src="/agf.png" alt="Logo AGF" />
-            </div>
-            <div className="carrouselImage">
-              <img src="/nego-tech.png" alt="Logo Nego Tech" />
-            </div>
-            <div className="carrouselImage">
-              <img src="/agf.png" alt="Logo AGF" />
-            </div>
-            <div className="carrouselImage">
-              <img src="/nego-tech.png" alt="Logo Nego Tech" />
-            </div>
-            <div className="carrouselImage">
-              <img src="/agf.png" alt="Logo AGF" />
-            </div>
-            <div className="carrouselImage">
-              <img src="/nego-tech.png" alt="Logo Nego Tech" />
-            </div>
-            <div className="carrouselImage">
-              <img src="/agf.png" alt="Logo AGF" />
-            </div>
-            <div className="carrouselImage">
-              <img src="/nego-tech.png" alt="Logo Nego Tech" />
-            </div>
+            {lista.map((_, index) => (
+              <div className="carrouselImage" key={index}>
+                <Image
+                  src={`/fotos/${index + 1}.jpg`}
+                  alt="Serviços prestados"
+                  width={500}
+                  height={281}
+                />
+              </div>
+            ))}
           </Slider>
         </ClientsContainer>
 
         <ServicesContainer id="services">
           <h2>Conheça um pouco mais dos nossos serviços em Campo Grande</h2>
 
-          <div className="gridTemplate">
+          <Slider {...settings2}>
             <div className="cardsItem">
               <Image
                 src="/portaria.png"
@@ -121,7 +144,12 @@ export default function Home() {
                 title="Portaria"
                 setModalOpen={setIsPortariaModalOpen}
               >
-                <img src="/portaria-big.png" alt="Portaria" />
+                <Image
+                  src="/portaria-big.png"
+                  alt="Portaria"
+                  height={250}
+                  width={196}
+                />
 
                 <div>
                   <p>
@@ -220,7 +248,12 @@ export default function Home() {
                 title="Apoio Administrativo"
                 setModalOpen={setIsAdmModalOpen}
               >
-                <img src="/adm-big.png" alt="Apoio administrativo" />
+                <Image
+                  src="/adm-big.png"
+                  alt="Apoio administrativo"
+                  width={251}
+                  height={196}
+                />
 
                 <div>
                   <p>
@@ -267,7 +300,7 @@ export default function Home() {
                 </div>
               </Modal>
             </div>
-          </div>
+          </Slider>
         </ServicesContainer>
 
         <AboutUsContainer id="about">
@@ -299,7 +332,7 @@ export default function Home() {
             </p>
 
             <a href="https://api.whatsapp.com/send?phone=556799828077&text=Olá! Gostaria de um orçamento.">
-              Entre em contato
+              Saiba mais
             </a>
           </div>
         </AboutUsContainer>
