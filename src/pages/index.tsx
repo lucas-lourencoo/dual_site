@@ -115,7 +115,7 @@ export default function Home() {
             {lista.map((_, index) => (
               <div className="carrouselImage" key={index}>
                 <Image
-                  src={`/fotos/${index + 1}.jpg`}
+                  src={`/photos/${index + 1}.jpg`}
                   alt="Serviços prestados"
                   width={500}
                   height={281}
