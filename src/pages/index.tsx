@@ -1,5 +1,6 @@
 import {
   AboutUsContainer,
+  ButtonDownload,
   ClientsContainer,
   HeroContainer,
   ServicesContainer,
@@ -13,6 +14,7 @@ import { useState } from "react";
 import { Modal } from "../components/Modal";
 import { List } from "../utils/list";
 import { Settings } from "react-slick";
+import { FaFilePdf } from "react-icons/fa";
 
 export default function Home() {
   const [isPortariaModalOpen, setIsPortariaModalOpen] = useState(false);
@@ -301,6 +303,11 @@ export default function Home() {
               </Modal>
             </div>
           </Slider>
+
+          <ButtonDownload href="/PORTFOLIO.pdf" download="portfolio-dual.pdf">
+            <FaFilePdf style={{ marginRight: ".5rem" }} />
+            Clique aqui e baixe o nosso portfólio
+          </ButtonDownload>
         </ServicesContainer>
 
         <AboutUsContainer id="about">
@@ -331,7 +338,7 @@ export default function Home() {
               você
             </p>
 
-            <a href="https://api.whatsapp.com/send?phone=556799828077&text=Olá! Gostaria de um orçamento.">
+            <a href="/PORTFOLIO.pdf" target="_blank">
               Saiba mais
             </a>
           </div>

@@ -136,6 +136,10 @@ export const ServicesContainer = styled.section`
   padding: 7rem 0;
   position: relative;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   &::before {
     content: "";
     width: 100%;
@@ -303,5 +307,29 @@ export const AboutUsContainer = styled.section`
         background: var(--green-400);
       }
     }
+  }
+`;
+
+export const ButtonDownload = styled.a`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background: var(--green-400);
+
+  color: var(--white);
+
+  position: relative;
+  z-index: 10;
+  margin-top: 6rem;
+  font-size: 1.25rem;
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+
+  &:hover {
+    filter: brightness(96%);
   }
 `;
