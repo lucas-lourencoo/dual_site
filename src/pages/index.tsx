@@ -86,11 +86,8 @@ export default function Home() {
 
           <video
             controls
-            loop
-            autoPlay
             controlsList="nodownload"
             disablePictureInPicture
-            muted={false}
             preload="auto"
           >
             <source src="/banner.mp4" type="video/mp4" />
