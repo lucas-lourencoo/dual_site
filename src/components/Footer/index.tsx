@@ -35,7 +35,7 @@ export function Footer() {
                 width={28}
                 height={28}
               />
-              <a href="tel: 67 3385-5445">(67) 3385-5445</a>
+              <a href="tel: 67 3305-5445">(67) 3305-5445</a>
             </li>
             <li>
               <Image
